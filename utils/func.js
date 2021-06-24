@@ -8,7 +8,6 @@ import * as filterConstLisa from 'lisa/filter/const'
 import formatFunc from '@/filter/format'
 import formatFuncLisa from 'lisa/filter/format'
 import { ElMessageBox } from 'element-plus'
-import dayjs from 'dayjs'
 import store from '@/store'
 
 /** *************** 数据相关 *************** **/
@@ -47,7 +46,7 @@ export const constDataToArray = (obj, firstItem = null, isNumber = false) => {
 }
 
 /**
- * filter过滤器
+ * filter过滤器 优先选择项目中的过滤器
  * @param {String} filterName 过滤器名称
  * @param {String} arg 参数
  * @return {String|Number} 转换结果，一般结果为字符串或数字
@@ -62,7 +61,7 @@ export const filter = (filterName, arg) => {
   }
 }
 /**
- * format格式化
+ * format格式化 优先执行项目中的方法
  * @param {String} formatName 过滤器名称
  * @param {Array} args 任意多个参数
  * @return {String|Number} 转换结果，一般结果为字符串或数字
@@ -150,11 +149,11 @@ export const confirmExecHandle = (title, text, callback, cancelCallBack = null) 
 export const getRouteQuery = (query) => {
   const q = Object.assign({}, query)
   delete q.t
-  // 更具需要做转换
+  // 根据需要做转换
   // if (q.store_ids) {
   //   q.store_ids = q.store_ids.split(',')
   // }
-  // 根究需要做转换
+  // 根据需要做转换
   // if (q.begin_time) {
   //   q.begin_time = format('submitTime', q.begin_time)
   // }
