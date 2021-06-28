@@ -1,6 +1,6 @@
 <template>
   <div class="r-empty">
-    <img class="r-empty-img" :style="`width: ${width}px`" src="/images/nodata.png" v-if="!noImage">
+    <img class="r-empty-img" :style="`width: ${width}px`" src="lisa/assets/images/nodata.png" v-if="!noImage">
     <div class="r-empty-text">
       <slot>暂无数据</slot>
     </div>
