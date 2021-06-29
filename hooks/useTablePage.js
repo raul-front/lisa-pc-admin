@@ -56,18 +56,18 @@ const useTablePage = (getDataHandle) => {
   })
   onBeforeUnmount(() => {
     if (isClearRouterQuery) {
-      clearRouteQuery(router, routeName)
+      clearRouteQuery(router, store, routeName)
     }
   })
   const initRoute = () => {
     // TODO: 捋一下逻辑，添加注释
-    let pageOption = store.state.user.pageOption[route.name]
+    let pageOption = store.state.lisa.pageOption[route.name]
     const query = route.query // 有query.super表示从别的页面跳转过来
     if (query.super || !pageOption) {
       delete query.super
       pageOption = Object.assign({ limit: 10, offset: 0, current: 1, total: 0 }, query, initQuery)
     }
-    updateRouteQuery(route, router, pageOption)
+    updateRouteQuery(route, router, store, pageOption)
   }
 
   const getData = () => {

@@ -74,7 +74,7 @@ export default {
         pageData.showPage = false
         nextTick(() => {
           // 这时候store中肯定有值
-          const pageOption = store.state.user.pageOption[route.name]
+          const pageOption = store.state.lisa.pageOption[route.name]
           pageData.size = Number(pageOption.limit)
           pageData.current = Number(pageOption.current)
           pageData.realTotal = Number(pageOption.total)
@@ -90,7 +90,7 @@ export default {
     }
     const handleCurrentChange = () => {
       const offset = (pageData.current - 1) * pageData.size
-      updateRouteQuery(route, router, {
+      updateRouteQuery(route, router, store, {
         offset: offset,
         limit: pageData.size,
         current: pageData.current,

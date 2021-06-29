@@ -8,7 +8,6 @@ import * as filterConstLisa from 'lisa/filter/const'
 import formatFunc from '@/filter/format'
 import formatFuncLisa from 'lisa/filter/format'
 import { ElMessageBox } from 'element-plus'
-import store from '@/store'
 
 /** *************** 数据相关 *************** **/
 /**
@@ -162,7 +161,7 @@ export const getRouteQuery = (query) => {
   // }
   return q
 }
-export const updateRouteQuery = (route, router, obj, clearOtherQuery = false) => {
+export const updateRouteQuery = (route, router, store, obj, clearOtherQuery = false) => {
   let q // 最后设置的query
   let s // 最后保存在store中的query
   let isPage = true
@@ -193,7 +192,7 @@ export const updateRouteQuery = (route, router, obj, clearOtherQuery = false) =>
   }
 
   // 保存到store中
-  store.commit('user/SET_PAGE_OPTION', {
+  store.commit('lisa/SET_PAGE_OPTION', {
     routerName: route.name,
     isPage: isPage,
     data: s,
@@ -201,8 +200,8 @@ export const updateRouteQuery = (route, router, obj, clearOtherQuery = false) =>
   q.t = (new Date()).getTime()
   router.replace({ query: q })
 }
-export const clearRouteQuery = (router, routerName) => {
-  store.commit('user/CLEAR_PAGE_OPTION', routerName)
+export const clearRouteQuery = (router, store, routerName) => {
+  store.commit('lisa/CLEAR_PAGE_OPTION', routerName)
   router.replace({ query: {} })
 }
 

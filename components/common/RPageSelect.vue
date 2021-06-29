@@ -12,6 +12,7 @@
 <script>
 import { ref, onMounted, nextTick, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 import { updateRouteQuery } from 'lisa/utils/func'
 
 export default {
@@ -27,6 +28,7 @@ export default {
   setup (props) {
     const route = useRoute()
     const router = useRouter()
+    const store = useStore()
 
     const value = ref('')
 
@@ -49,7 +51,7 @@ export default {
     const changeHandle = (val) => {
       const query = {}
       query[props.queryKey] = val || null
-      updateRouteQuery(route, router, query)
+      updateRouteQuery(route, router, store, query)
     }
 
     return {

@@ -12,6 +12,7 @@
 <script>
 import { ref, onMounted, nextTick, watch, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 import { updateRouteQuery } from 'lisa/utils/func'
 
 const valueFormatData = {
@@ -48,6 +49,7 @@ export default {
   setup (props, { emit }) {
     const route = useRoute()
     const router = useRouter()
+    const store = useStore()
 
     const selected = ref(null)
     const disabledDate = (time) => {
@@ -83,7 +85,7 @@ export default {
         // 清空时，值为null，不用处理
         const query = {}
         query[props.type] = val
-        updateRouteQuery(route, router, query)
+        updateRouteQuery(route, router, store, query)
       } else {
         // 普通下拉框数据绑定
         emit('input', val)

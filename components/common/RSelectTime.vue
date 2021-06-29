@@ -11,6 +11,7 @@
 <script>
 import { ref, onMounted, nextTick, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 import { updateRouteQuery, format } from 'lisa/utils/func'
 
 export default {
@@ -32,6 +33,7 @@ export default {
   setup (props, { emit }) {
     const route = useRoute()
     const router = useRouter()
+    const store = useStore()
 
     const selected = ref(null)
     const disabledDate = (time) => {
@@ -63,7 +65,7 @@ export default {
         const query = {}
         // element-plus 的 value-format 不支持时间戳，需要自己转
         query[props.queryKey] = format('timestamp', val) || null
-        updateRouteQuery(route, router, query)
+        updateRouteQuery(route, router, store, query)
       } else {
         // 普通下拉框数据绑定
         // 可以根据需求转成接口需要的格式

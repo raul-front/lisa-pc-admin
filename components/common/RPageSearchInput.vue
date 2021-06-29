@@ -15,6 +15,7 @@
 import { ref, onMounted, nextTick, watch } from 'vue'
 import { ElMessage } from 'element-plus'
 import { useRoute, useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 import { updateRouteQuery } from 'lisa/utils/func'
 
 export default {
@@ -25,6 +26,7 @@ export default {
   setup (props) {
     const route = useRoute()
     const router = useRouter()
+    const store = useStore()
 
     const lastSelect = ref('')
     const select = ref('')
@@ -61,7 +63,7 @@ export default {
       if (lastSelect.value) {
         query[lastSelect.value] = null
       }
-      updateRouteQuery(route, router, query)
+      updateRouteQuery(route, router, store, query)
     }
 
     watch(select, (n, o) => {
