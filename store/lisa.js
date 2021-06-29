@@ -4,7 +4,7 @@
  * @Date: 2021-06-29 11:02:31
  */
 
-import storage from '@/utils/storage'
+import storage from 'lisa/utils/storage'
 
 const state = {
   menuCollapsed: false,
@@ -20,6 +20,7 @@ export default {
   mutations: {
     SET_TOKEN: (state, token) => {
       state.token = token
+      storage.setToken(token)
     },
     // 设置菜单收缩
     SET_MENU_COLLAPSED (state, payload) {
