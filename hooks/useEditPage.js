@@ -37,6 +37,7 @@ const useEditPage = ({ defaultForm, handleAddData, handleUpdateData, handleGetDe
   const getData = () => {
     loading.value = true
     handleGetDetail(id.value).then(data => {
+      defaultForm = data
       editForm.value = copy(data)
       loading.value = false
     }).catch(_ => {
