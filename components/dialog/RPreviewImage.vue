@@ -9,21 +9,21 @@
         <div class="preview-image-mask"></div>
         <div class="preview-image" @click="handleClose">
           <ul class="preview-image-handle" @click.stop>
-            <li class="preview-image-handle-item" @click="handleRotateLeft"><i class="iconfont icon-rotate-left"></i></li>
-            <li class="preview-image-handle-item" @click="handleRotateRight"><i class="iconfont icon-rotate-right"></i></li>
-            <li class="preview-image-handle-item" :class="{'preview-image-handle-item-disabled': scaleMinusDisabled}" @click="handleScaleMinus"><i class="iconfont icon-zoomout"></i></li>
-            <li class="preview-image-handle-item" @click="handleScalePlus"><i class="iconfont icon-zoomin"></i></li>
-            <li class="preview-image-handle-item" @click="handleClose"><i class="iconfont icon-close"></i></li>
+            <li class="preview-image-handle-item" @click="handleRotateLeft"><i class="lisafont icon-rotate-left"></i></li>
+            <li class="preview-image-handle-item" @click="handleRotateRight"><i class="lisafont icon-rotate-right"></i></li>
+            <li class="preview-image-handle-item" :class="{'preview-image-handle-item-disabled': scaleMinusDisabled}" @click="handleScaleMinus"><i class="lisafont icon-zoomout"></i></li>
+            <li class="preview-image-handle-item" @click="handleScalePlus"><i class="lisafont icon-zoomin"></i></li>
+            <li class="preview-image-handle-item" @click="handleClose"><i class="lisafont icon-close"></i></li>
           </ul>
           <div class="preview-image-content">
             <img class="preview-image-content-img" @click.stop ref="imgRef"
               :src="currentUrl" :style="imageStyle" :alt="title">
           </div>
           <div class="preview-image-switch-left" :class="{'preview-image-switch-disabled': prevSwitchDisabled}" @click.stop="handlePrev">
-            <i class="iconfont icon-left"></i>
+            <i class="lisafont icon-left"></i>
           </div>
           <div class="preview-image-switch-right" :class="{'preview-image-switch-disabled': nextSwitchDisabled}" @click.stop="handleNext">
-            <i class="iconfont icon-right"></i>
+            <i class="lisafont icon-right"></i>
           </div>
         </div>
       </div>
@@ -248,7 +248,7 @@ export default {
         padding: 0 10px;
         margin-left: 15px;
         cursor: pointer;
-        .iconfont{
+        .lisafont{
           font-size: 24px;
         }
       }
@@ -289,7 +289,7 @@ export default {
       font-size: 18px;
       cursor: pointer;
       pointer-events: auto;
-      .iconfont{
+      .lisafont{
         font-size: 24px;
       }
     }

@@ -1,3 +1,5 @@
+@import './mixins.scss';
+
 html, body{
   // background: $html-bgc;
   // color: $color-text;
@@ -10,6 +12,23 @@ html, body{
 
 a {
 	text-decoration: none;
+}
+
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.lisafont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /*滚动条凹槽的颜色，还可以设置边框属性 */
