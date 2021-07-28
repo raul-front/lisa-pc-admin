@@ -11,11 +11,11 @@
     <div class="table-content">
       <slot name="table"></slot>
     </div>
-    <div class="table-footer">
+    <div class="table-footer" v-if="!noPage">
       <div class="table-footer-left">
         <slot name="handleBottomLeftButtons"></slot>
       </div>
-      <div class="table-footer-right" v-if="!noPage">
+      <div class="table-footer-right">
         <el-pagination background
           v-show="pageData.showPage"
           layout="total, sizes, prev, pager, next, jumper"
