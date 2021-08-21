@@ -8,7 +8,7 @@ import { ref, computed, watch } from 'vue'
 import { ElMessage } from 'element-plus'
 import { copy } from 'lisa/utils/func'
 
-const useTableEditDialog = ({ props, emit, defaultForm, handleAddData, handleUpdateData, handleInitUpdateData = null, handleGetDetail = null }) => {
+const useTableEditDialog = ({ props, emit, defaultForm, handleAddData, handleUpdateData, handleInitAddData = null, handleInitUpdateData = null, handleGetDetail = null }) => {
   const editFormRef = ref(null)
   const thisVisible = ref(false)
   const editFormLoading = ref(false)
@@ -36,6 +36,7 @@ const useTableEditDialog = ({ props, emit, defaultForm, handleAddData, handleUpd
   // 打开弹框
   const openAddDialog = () => {
     submitBtnLoading.value = false
+    handleInitAddData && handleInitAddData()
     resetForm()
     editForm.value = copy(defaultForm)
     thisVisible.value = true
