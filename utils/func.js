@@ -251,3 +251,22 @@ export const getImageObjectURL = (file) => {
   }
   return url
 }
+
+/**
+ * 无限极分类
+ * @param {Array} cate 数组
+ * @param {Number} pid 父级id
+ * @param {String} k id标识
+ * @return {Array} 层级嵌套的结果
+ */
+export const unlimitedForLayer = (cate, pid = 0, k = 'id') => {
+  const arr = []
+  cate.forEach(x => {
+    if (x.parentId === pid) {
+      x.children = unlimitedForLayer(cate, x[k], k)
+      delete x.parentId
+      arr.push(x)
+    }
+  })
+  return arr
+}

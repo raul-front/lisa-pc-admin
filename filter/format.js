@@ -12,19 +12,19 @@ export default {
   /** *************** 时间相关 *************** **/
   month: t => {
     if (!t) return ''
-    return dayjs().format('YYYY-MM')
+    return dayjs(t).format('YYYY-MM')
   },
   date: t => {
     if (!t) return ''
-    return dayjs().format('YYYY-MM-DD')
+    return dayjs(t).format('YYYY-MM-DD')
   },
   minute: t => {
     if (!t) return ''
-    return dayjs().format('YYYY-MM-DD HH:mm')
+    return dayjs(t).format('YYYY-MM-DD HH:mm')
   },
   second: t => {
     if (!t) return ''
-    return dayjs().format('YYYY-MM-DD HH:mm:ss')
+    return dayjs(t).format('YYYY-MM-DD HH:mm:ss')
   },
   timestamp: t => {
     if (!t) return ''
